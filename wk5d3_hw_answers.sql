@@ -87,7 +87,7 @@ ORDER BY num_movies_in_cat DESC;
 
 			-- Q6 --
 			-- ANSWER --
-SELECT f.*
+SELECT f.film_id, title, COUNT(*) AS num_actors
 FROM film AS f
 JOIN film_actor AS fa ON f.film_id = fa.film_id
 GROUP BY f.film_id
