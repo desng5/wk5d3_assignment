@@ -22,7 +22,7 @@ WHERE district = 'Texas'; -- filter
 SELECT c.first_name, c.last_name, p.amount
 FROM customer AS c -- create alias for customer
 INNER JOIN payment AS p -- create alias for payment
-ON c.customer_id = p.customer_id 
+ON c.customer_id = p.customer_id --match id's from both tables
 WHERE amount > 7.00
 ;
 
@@ -99,7 +99,7 @@ LIMIT 1;
 			-- Q7 --
 			-- ANSWER --
 SELECT a.actor_id, a.first_name, a.last_name, COUNT(*) AS num_movies
-FROM actor AS a
+FROM actor a
 JOIN film_actor AS fa ON a.actor_id = fa.actor_id
 GROUP BY a.actor_id, a.first_name, a.last_name
 ORDER BY num_movies ASC
@@ -110,7 +110,7 @@ LIMIT 1;
 			-- Q8 --
 			-- ANSWER --
 SELECT c.country_id, c.country, COUNT(*) AS num_cities
-FROM country AS c
+FROM country c
 JOIN city AS cty ON c.country_id = cty.country_id
 GROUP BY c.country_id, c.country
 ORDER BY num_cities DESC
@@ -121,7 +121,7 @@ LIMIT 3;
 			-- Q9 --
 			-- ANSWER --
 SELECT a.actor_id, a.first_name, a.last_name, COUNT(*) AS count
-FROM actor AS a
+FROM actor a
 JOIN film_actor AS fa ON a.actor_id = fa.actor_id
 GROUP BY a.actor_id, a.first_name, a.last_name
 HAVING COUNT(*) BETWEEN 20 AND 25;
